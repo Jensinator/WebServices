@@ -12,8 +12,11 @@ public class Measurement {
 		private long value;
 		private int id;
 		
-		public Measurement(){
+		public Measurement(Timestamp timestamp, long value, int id){
 			
+			this.timestamp = timestamp;
+			this.value = value;
+			this.id = id;
 		}
 		
 		@XmlElement(name = "timestamp")
