@@ -1,5 +1,7 @@
 package de.hszg.client;
 
+import java.util.ArrayList;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -9,6 +11,14 @@ public class Sensor {
 	private String name;
 	private int buildingID;
 	private String unit;
+	private ArrayList<Measurement> measurements;
+
+	public Sensor(int ID, String name, int buildingID, String unit, ArrayList<Measurement> measurements) {
+		this.ID = ID;
+		this.name = name;
+		this.buildingID = buildingID;
+		this.measurements = measurements;
+	}
 
 	@XmlElement(name = "ID")
 	public int getID() {
@@ -44,5 +54,14 @@ public class Sensor {
 
 	public void setUnit(String unit) {
 		this.unit = unit;
+	}
+
+	@XmlElement(name = "measurements")
+	public ArrayList<Measurement> getMeasurements() {
+		return measurements;
+	}
+
+	public void setMeasurements(ArrayList<Measurement> measurements) {
+		this.measurements = measurements;
 	}
 }
