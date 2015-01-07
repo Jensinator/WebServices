@@ -13,6 +13,8 @@ public class Sensor {
 	private String unit;
 	private ArrayList<Measurement> measurements;
 
+	public Sensor(){}
+	
 	public Sensor(int ID, String name, int buildingID, String unit, ArrayList<Measurement> measurements) {
 		this.ID = ID;
 		this.name = name;
