@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 
 @XmlRootElement(name = "measurement")
 public class Measurement {
@@ -12,6 +14,8 @@ public class Measurement {
 		private long value;
 		private int id;
 		
+		public Measurement(){}
+		
 		public Measurement(Timestamp timestamp, long value, int id){
 			
 			this.timestamp = timestamp;
@@ -19,6 +23,7 @@ public class Measurement {
 			this.id = id;
 		}
 		
+		@XmlJavaTypeAdapter( TimestampAdapter.class)
 		@XmlElement(name = "timestamp")
 		public Timestamp getTimestamp() {
 			return timestamp;
