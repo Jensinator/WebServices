@@ -17,7 +17,7 @@ public class MeasurementReceiver {
 	@POST
 	@Path("/sendValues")
 	@Consumes(MediaType.APPLICATION_XML)
-	public Response sendViews( Sensor sensor ){
+	public Response sendValues( Sensor sensor ){
 		
 		// do here the stuff we want to do with our service
 		
