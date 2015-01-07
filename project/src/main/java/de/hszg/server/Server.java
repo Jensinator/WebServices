@@ -5,8 +5,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import de.hszg.client.Sensor;
 import de.hszg.service.SensorCollection;
 
 @Path("/server")
