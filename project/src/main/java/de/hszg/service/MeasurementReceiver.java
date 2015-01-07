@@ -8,11 +8,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apache.log4j.Logger;
+
 import de.hszg.client.Sensor;
 
 @Path("/receiver")
 public class MeasurementReceiver {
 
+	static Logger log = Logger.getLogger( MeasurementReceiver.class.getName());
 	
 	@POST
 	@Path("/sendValues")
@@ -20,7 +23,7 @@ public class MeasurementReceiver {
 	public Response sendValues( Sensor sensor ){
 		
 		// do here the stuff we want to do with our service
-		
+		log.info("This is our first log!");
 		
 		return Response.status(200).entity( "Everything was good" ).build();
 	}
@@ -29,6 +32,9 @@ public class MeasurementReceiver {
 	@Path("/getHello")
 	@Produces(MediaType.APPLICATION_XML)
 	public String sayHtmlHello() {
+		
+		
+		log.info("This is our first log!");
 		
 	    return "<html> " + "<title>" + "Hello" + "</title>"
 	        + "<body><h1>" + "Hello" + "</body></h1>" + "</html> ";
