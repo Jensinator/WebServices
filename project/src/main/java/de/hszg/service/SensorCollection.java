@@ -20,5 +20,9 @@ public class SensorCollection {
 	public ArrayList<Sensor> getSensors() {
 		return sensors;
 	}
+
+	public void setSensors(ArrayList<Sensor> sensors) {
+		this.sensors = sensors;
+	}
 	
 }
