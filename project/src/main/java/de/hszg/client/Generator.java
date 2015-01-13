@@ -102,7 +102,7 @@ public class Generator {
 			
 			//Client client = Client.create();
 	        WebResource webResource = client.resource( url );
-	        ClientResponse response = webResource.accept(MediaType.APPLICATION_XML).post(ClientResponse.class, sensors.get(i) );
+	        ClientResponse response = webResource.header("User", "Maik geht Eier sammeln!").header("Key", "um die Nutten zu klatschen!").accept(MediaType.APPLICATION_XML).post(ClientResponse.class, sensors.get(i) );
 	        
 	        if( response.getStatus() != 200 ){
 	        	throw new RuntimeException("Maik der Nuttenklatscher war am Werke: " + response.getStatus());

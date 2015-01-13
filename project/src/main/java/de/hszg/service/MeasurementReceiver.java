@@ -6,6 +6,7 @@ import java.security.PublicKey;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -24,10 +25,14 @@ public class MeasurementReceiver {
 	@POST
 	@Path("/sendValues")
 	@Consumes(MediaType.APPLICATION_XML)
-	public Response sendValues( Sensor sensor ){
+	public Response sendValues( Sensor sensor, @HeaderParam("User") final String user,
+			@HeaderParam("Key") final String key ){
 		
 		// do here the stuff we want to do with our service
 		log.info("This is our first log!");
+		
+		log.info( "Header user : " +  user);
+		log.info( "Header key  : " +  key );
 		
 		return Response.status(200).entity( "Everything was good" ).build();
 	}
@@ -35,7 +40,11 @@ public class MeasurementReceiver {
 	@GET
 	@Path("/getHello")
 	@Produces(MediaType.APPLICATION_XML)
-	public String sayHtmlHello() {
+	public String sayHtmlHello( @HeaderParam("User") final String user,
+			@HeaderParam("Key") final String key ) {
+		
+		log.info( "Header user : " +  user);
+		log.info( "Header key  : " +  key );
 		
 		
 		log.info("This is our first log!");
