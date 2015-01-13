@@ -29,18 +29,18 @@
 	<display-name>Archetype Created Web Application</display-name>
 	
     <servlet>
-        <servlet-name>Receiver</servlet-name>
+        <servlet-name>receiver</servlet-name>
         <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
         <init-param>
         	<param-name>com.sun.jersey.config.property.packages</param-name>
-        	<param-value>de.hszg.service</param-value>
+        	<param-value>de.hszg.service;de.hszg.server</param-value>
     	</init-param>
     </servlet>
     
     <servlet-mapping>
-        <servlet-name>Receiver</servlet-name>
+        <servlet-name>receiver</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
-
+    
 </web-app>
         

@@ -1,5 +1,9 @@
 package de.hszg.service;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.PublicKey;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -39,6 +43,5 @@ public class MeasurementReceiver {
 	    return "<html> " + "<title>" + "Hello" + "</title>"
 	        + "<body><h1>" + "Hello" + "</body></h1>" + "</html> ";
 	}
-	
 	
 }
