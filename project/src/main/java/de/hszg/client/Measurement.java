@@ -13,7 +13,17 @@ public class Measurement {
 		private Timestamp timestamp;
 		private long value;
 		private int id;
-		
+		private int sensorID;
+
+		@XmlElement(name = "sensorId")
+		public int getSensorID() {
+			return sensorID;
+		}
+
+		public void setSensorID(int sensorID) {
+			this.sensorID = sensorID;
+		}
+
 		public Measurement(){}
 		
 		public Measurement(Timestamp timestamp, long value, int id){

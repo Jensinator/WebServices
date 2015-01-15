@@ -9,6 +9,7 @@ import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -34,25 +35,17 @@ public class Generator {
 		
 		String url = "https://127.0.0.1:8443/project/receiver/sendValues";
 		
-		ArrayList<Sensor> sensors = new ArrayList<Sensor>();
+		ArrayList<Measurement> measurements = new ArrayList<Measurement>();
+			
+		Random rand = new Random();
 		
-		for (int i = 0; i < 5; i++) {
-			
-			ArrayList<Measurement> measurements = new ArrayList<Measurement>();
-			
-			for (int j = 0; j < 100; j++) {
+		for (int j = 0; j < 100; j++) {
 				
-				Measurement measurement = new Measurement( new Timestamp(System.currentTimeMillis()), (long)Math.random(), j);
-				measurements.add(measurement);
-			}
-			
-			Sensor sensor = new Sensor(i , "Sensor" + i , i + 1000, "kg", measurements);
-			sensors.add(sensor);
+			Measurement measurement = new Measurement( new Timestamp(System.currentTimeMillis()), Math.abs((long)rand.nextInt()), j);
+			measurement.setSensorID(1);
+			measurements.add(measurement);
 		}
 		
-		
-		
-
 		TrustManager[] certs = new TrustManager[]
 		        {
 		            new X509TrustManager()
@@ -98,11 +91,11 @@ public class Generator {
 		} , ctx));
 		Client client = Client.create(config);
 		
-		for (int i = 0; i < sensors.size(); i++) {
+		for (int i = 0; i < measurements.size(); i++) {
 			
 			//Client client = Client.create();
 	        WebResource webResource = client.resource( url );
-	        ClientResponse response = webResource.header("User", "Maik geht Eier sammeln!").header("Key", "um die Nutten zu klatschen!").accept(MediaType.APPLICATION_XML).post(ClientResponse.class, sensors.get(i) );
+	        ClientResponse response = webResource.header("User", "Maik").header("Key", "0190666666").accept(MediaType.APPLICATION_XML).post(ClientResponse.class, measurements.get(i) );
 	        
 	        if( response.getStatus() != 200 ){
 	        	throw new RuntimeException("Maik der Nuttenklatscher war am Werke: " + response.getStatus());
