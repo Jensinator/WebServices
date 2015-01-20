@@ -12,25 +12,26 @@ import de.hszg.client.Measurement;
 @XmlRootElement(name = "measurementCollection")
 public class MeasurementCollection {
 
-	private List<Measurement> measurements;
+	private List<SlutHoe> measurements;
 	
 	public MeasurementCollection(){
-		
+		measurements = new ArrayList<SlutHoe>();
 	}
 	
 	@XmlElement(name = "measurements")
-	public List<Measurement> getMeasurements() {
-			return measurements;
+	public List<SlutHoe> getMeasurements() {
+		return measurements;
 	}
 
-	public void setMeasurements(List<Measurement> measurements) {
-		this.measurements = Collections.synchronizedList( measurements );
+	public void setMeasurements(List<SlutHoe> measurements) {
+		this.measurements =  measurements ;
 	}
 	
-	public void addMeasurement(Measurement measurement){
-		synchronized (measurements) {
-			this.measurements.add(measurement);
-		}
+	public void addMeasurement(SlutHoe measurement){
+		this.measurements.add(measurement);
 	}
 	
+	public void clear(){
+		this.measurements.clear();
+	}
 }
