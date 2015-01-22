@@ -33,6 +33,9 @@ public class Generator {
 	
 	public static void main(String args[]) throws IOException, NoSuchAlgorithmException, KeyManagementException{
 		
+		
+		while(true){
+		
 		String url = "https://127.0.0.1:8443/project/receiver/sendValues";
 		
 		ArrayList<Measurement> measurements = new ArrayList<Measurement>();
@@ -104,5 +107,6 @@ public class Generator {
 	        	System.out.println("All right!!!!! :)");
 	        }
 		}
+	}
 	}
 }
